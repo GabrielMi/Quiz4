@@ -161,6 +161,9 @@ public class PMap {
      */
     public Integer[] values() {
         // TODO
+        int values[];
+        for(int i = 0; i < map.size(); i++)
+            map[i] = map.get(i).getValue;
         return null;
     }
 
@@ -171,8 +174,11 @@ public class PMap {
      */
     public PEntry[] entrySet() {
         // TODO
-        PEntry[] mappings;
-
-        return null;
+        PEntry mappings[];
+        for(int i = 0; i < map.size(); i++) {
+            mappings[i].key = map.get(i).getKey();
+            mappings[i].value = map.get(i).getValue();
+        }
+        return mappings;
     }
 }
