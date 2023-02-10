@@ -15,6 +15,9 @@ import java.util.ArrayList;
  */
 public class PMap {
     private ArrayList<PEntry> map;
+    public PMap(){
+        map = new ArrayList<PEntry>();
+    }
     /**
      * Returns the number of key-value mappings in this map.
      *
@@ -84,7 +87,12 @@ public class PMap {
      */
     public Integer get(Integer key) {
         // TODO
-        return 0;
+        for(PEntry entry: this.map){
+            if(entry.getKey() == key){
+                return entry.getValue();
+            }
+        }
+        return null;
     }
 
     /**
@@ -101,7 +109,16 @@ public class PMap {
      */
     public Integer put(Integer key, Integer value) {
         // TODO
-        return 0;
+        for(PEntry entry: this.map){
+            if(entry.getKey() == key){
+                Integer old = entry.getValue();
+                entry.setValue(value);
+                return old;
+            }
+        }
+        PEntry mapping = new PEntry(key, value);
+        map.add(mapping);
+        return null;
     }
 
     /**
@@ -121,7 +138,14 @@ public class PMap {
      */
     public Integer remove(Integer key) {
         // TODO
-        return 0;
+        for(int i = 0; i < this.map.size(); i++){
+            if(this.map.get(i).getKey() == key){
+                int old = this.map.get(i).getValue();
+                this.map.remove(i);
+                return old;
+            }
+        }
+        return null;
     }
 
     /**
@@ -134,6 +158,9 @@ public class PMap {
      */
     public void putAll(Integer[] keys, Integer[] values) {
         // TODO
+        for(int i = 0; i < keys.length; i++){
+            put(keys[i], values[i]);
+        }
     }
 
     /**
@@ -142,6 +169,9 @@ public class PMap {
      */
     public void clear() {
         // TODO
+        for(int i = 0; i < map.size(); i++){
+            map.remove(0);
+        }
     }
 
     /**
@@ -151,7 +181,11 @@ public class PMap {
      */
     public Integer[] keySet() {
         // TODO
-        return null;
+        Integer[] keys = new Integer[map.size()];
+        for(int i = 0; i < map.size(); i++){
+            keys[i] = map.get(i).getKey();
+        }
+        return keys;
     }
 
     /**
@@ -161,10 +195,11 @@ public class PMap {
      */
     public Integer[] values() {
         // TODO
-        int values[];
-        for(int i = 0; i < map.size(); i++)
-            map[i] = map.get(i).getValue;
-        return null;
+        Integer[] values = new Integer[map.size()];
+        for(int i = 0; i < map.size(); i++){
+            values[i] = map.get(i).getValue();
+        }
+        return values;
     }
 
     /**
@@ -174,10 +209,9 @@ public class PMap {
      */
     public PEntry[] entrySet() {
         // TODO
-        PEntry mappings[];
-        for(int i = 0; i < map.size(); i++) {
-            mappings[i].key = map.get(i).getKey();
-            mappings[i].value = map.get(i).getValue();
+        PEntry[] mappings = new PEntry[this.map.size()];
+        for(int i = 0; i < map.size(); i++){
+            mappings[i] = new PEntry(map.get(i).getKey(), map.get(i).getValue());
         }
         return mappings;
     }
