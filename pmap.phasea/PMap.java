@@ -84,7 +84,12 @@ public class PMap {
      */
     public Integer get(Integer key) {
         // TODO
-        return 0;
+        for(PEntry entry: this.map){
+            if(entry.getKey() == key){
+                return entry.getValue();
+            }
+        }
+        return null;
     }
 
     /**
@@ -101,7 +106,14 @@ public class PMap {
      */
     public Integer put(Integer key, Integer value) {
         // TODO
-        return 0;
+        for(PEntry entry: this.map){
+            if(entry.getKey() == key){
+                Integer old = entry.getValue();
+                entry.setValue(value);
+                return old;
+            }
+        }
+        return null;
     }
 
     /**
@@ -121,7 +133,14 @@ public class PMap {
      */
     public Integer remove(Integer key) {
         // TODO
-        return 0;
+        for(int i = 0; i < this.map.size(); i++){
+            if(this.map.get(i).getKey() == key){
+                int old = this.map.get(i).getValue();
+                this.map.remove(i);
+                return old;
+            }
+        }
+        return null;
     }
 
     /**
