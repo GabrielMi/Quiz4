@@ -15,6 +15,9 @@ import java.util.ArrayList;
  */
 public class PMap {
     private ArrayList<PEntry> map;
+    public PMap(){
+        map = new ArrayList<PEntry>();
+    }
     /**
      * Returns the number of key-value mappings in this map.
      *
@@ -113,6 +116,8 @@ public class PMap {
                 return old;
             }
         }
+        PEntry mapping = new PEntry(key, value);
+        map.add(mapping);
         return null;
     }
 
