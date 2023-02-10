@@ -4,7 +4,7 @@
  */
 
 package pmap.phasea;
-
+import java.util.ArrayList;
 /**
  * PMap stands for Paired Map. A map is a collection of key-value
  * pairs, e.g., (1, 2) (2, 3) (3, 4) are all pairs with an integer key
@@ -14,7 +14,7 @@ package pmap.phasea;
  * to work.
  */
 public class PMap {
-
+    private ArrayList<PEntry> map;
     /**
      * Returns the number of key-value mappings in this map.
      *
@@ -22,7 +22,7 @@ public class PMap {
      */
     public Integer size() {
         // TODO
-        return 0;
+        return map.size();
     }
 
     /**
