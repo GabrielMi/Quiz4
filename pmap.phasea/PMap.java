@@ -161,6 +161,7 @@ public class PMap {
      */
     public PEntry[] entrySet() {
         // TODO
+        PEntry[] mappings;
 
         return null;
     }
