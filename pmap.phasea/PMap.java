@@ -140,7 +140,7 @@ public class PMap {
                 return old;
             }
         }
-        return null;:
+        return null;
     }
 
     /**
@@ -153,6 +153,9 @@ public class PMap {
      */
     public void putAll(Integer[] keys, Integer[] values) {
         // TODO
+        for(int i = 0; i < keys.length; i++){
+            put(keys[i], values[i]);
+        }
     }
 
     /**
@@ -161,6 +164,9 @@ public class PMap {
      */
     public void clear() {
         // TODO
+        for(int i = 0; i < map.size(); i++){
+            map.remove(0);
+        }
     }
 
     /**
@@ -170,7 +176,11 @@ public class PMap {
      */
     public Integer[] keySet() {
         // TODO
-        return null;
+        Integer[] keys = new Integer[map.size()];
+        for(int i = 0; i < map.size(); i++){
+            keys[i] = map.get(i).getKey();
+        }
+        return keys;
     }
 
     /**
@@ -180,7 +190,11 @@ public class PMap {
      */
     public Integer[] values() {
         // TODO
-        return null;
+        Integer[] values = new Integer[map.size()];
+        for(int i = 0; i < map.size(); i++){
+            values[i] = map.get(i).getValue();
+        }
+        return values;
     }
 
     /**
@@ -190,8 +204,11 @@ public class PMap {
      */
     public PEntry[] entrySet() {
         // TODO
-        PEntry[] mappings;
+        PEntry[] mappings = new PEntry[this.map.size()];
+        for(int i = 0; i < map.size(); i++){
+            mappings[i] = new PEntry(map.get(i).getKey(), map.get(i).getValue());
+        }
 
-        return null;
+        return mappings;
     }
 }
