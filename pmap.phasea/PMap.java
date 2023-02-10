@@ -34,7 +34,7 @@ public class PMap {
      */
     public boolean isEmpty() {
         // TODO
-        return false;
+        return size() == 0;
     }
 
     /**
@@ -47,6 +47,11 @@ public class PMap {
      */
     public boolean containsKey(Integer key) {
         // TODO
+        for(PEntry entry: this.map){
+            if(entry.getKey() == key){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -60,6 +65,11 @@ public class PMap {
      */
     public boolean containsValue(Integer value) {
         // TODO
+        for(PEntry entry: this.map){
+            if(entry.getValue() == value){
+                return true;
+            }
+        }
         return false;
     }
 
